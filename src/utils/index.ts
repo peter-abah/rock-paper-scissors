@@ -1,7 +1,7 @@
 
 // winning conditions for rock paper scissors
 // The key beats the value
-winningConditions = {
+const winningConditions = {
   rock: 'scissors',
   scissors: 'paper',
   paper: 'rock'
@@ -19,4 +19,11 @@ export function checkWinner(choice1: ChoiceType, choice2: ChoiceType) {
   }
   
   return { tie: true };
+}
+
+// Get random choice between rock paper and scissors
+export function randomChoice(): ChoiceType {
+  let choices = ['rock', 'paper', 'scissors'];
+  let index = Math.floor(Math.random() * 3);
+  return choices[index] as ChoiceType;
 }
