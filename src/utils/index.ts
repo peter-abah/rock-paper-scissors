@@ -10,15 +10,16 @@ const winningConditions = {
 // Types for choices i.e rock | paper | scissors
 export type ChoiceType = keyof typeof winningConditions;
 
-// Checks for winner or tie in rock paper scissors
-export function checkWinner(choice1: ChoiceType, choice2: ChoiceType) {
-  if (winningConditions[choice1] === choice2) {
-    return { winner: choice1 };
-  } else if (winningConditions[choice2] === choice1) {
-    return { winner: choice2 };
+// Checks if player wins, loses or ties in rock paper scissors
+export function checkWinner(playerChoice: ChoiceType, computerChoice: ChoiceType) {
+  if (winningConditions[playerChoice] === computerChoice) {
+    return 'win';
+  }
+  if (winningConditions[computerChoice] === playerChoice) {
+    return 'lose';
   }
   
-  return { tie: true };
+  return 'tie';
 }
 
 // Get random choice between rock paper and scissors
@@ -26,4 +27,15 @@ export function randomChoice(): ChoiceType {
   let choices = ['rock', 'paper', 'scissors'];
   let index = Math.floor(Math.random() * 3);
   return choices[index] as ChoiceType;
+}
+
+// Returns message for user based on game state
+export function getGameMessage(state: string) {
+  if (state === 'win') {
+    return 'You Win';
+  } else if (state === 'lose') {
+    return 'You Lose'
+  }
+  
+  return 'Tie';
 }
