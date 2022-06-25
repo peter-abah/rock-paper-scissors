@@ -36,10 +36,18 @@ function App() {
     null;
   const message = gameState ? getGameMessage(gameState) : '';
   return (
-    <div className="App">
-      <header>
-        <h1> Rock paper scissors </h1>
-        <h2>Score: {score}</h2>
+    <div className="app">
+      <header className='header'>
+        <h1>
+          <span>ROCK</span>
+          <span>PAPER</span>
+          <span>SCISSORS</span>
+        </h1>
+        
+        <div className='score-wrapper'>
+          <h2>SCORE</h2>
+          <span className='score'>{score}</span>
+        </div>
       </header>
       
       {gameState ? 
