@@ -5,6 +5,9 @@ import {
   getGameMessage,
   ChoiceType
 } from './utils';
+
+
+import Header from './components/Header';
 import ChoiceBtn from './components/ChoiceBtn';
 import './App.css';
 
@@ -42,19 +45,7 @@ function App() {
 
   return (
     <div className="app">
-      <header className='header'>
-        <h1>
-          <span>ROCK</span>
-          <span>PAPER</span>
-          <span>SCISSORS</span>
-        </h1>
-        
-        <div className='score-wrapper'>
-          <h2>SCORE</h2>
-          <span className='score'>{score}</span>
-        </div>
-      </header>
-      
+      <Header score={score} />
       {gameState ? 
         <div>
           <p>You picked: {playerChoice}</p>
