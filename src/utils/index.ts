@@ -39,3 +39,12 @@ export function getGameMessage(state: string) {
   
   return 'Tie';
 }
+
+// Returns the string in titleCase
+// Will convert first character to upper case and 
+// the rest to lowercase
+export function titleCase(s: string) {
+  if (s.length < 1) return s;
+  
+  return s[0].toUpperCase() + s.substring(1).toLowerCase();
+}

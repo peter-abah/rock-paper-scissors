@@ -5,6 +5,7 @@ import {
   getGameMessage,
   ChoiceType
 } from './utils';
+import ChoiceBtn from './components/ChoiceBtn';
 import './App.css';
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   // Makes player choice and computer choice and get winner
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     let choice = e.currentTarget.dataset.choice as ChoiceType;
+    if (choice == null) return;
+
     setPlayerChoice(choice);
     
     let computerChoice = randomChoice();
@@ -31,10 +34,12 @@ function App() {
     setComputerChoice(null);
   }
   
-  const gameState = playerChoice && computerChoice ?
+  let gameState = playerChoice && computerChoice ?
     checkWinner(playerChoice, computerChoice) :
     null;
-  const message = gameState ? getGameMessage(gameState) : '';
+  let message = gameState ? getGameMessage(gameState) : '';
+  const choices = ['rock', 'paper', 'scissors'];
+
   return (
     <div className="app">
       <header className='header'>
@@ -59,9 +64,14 @@ function App() {
         </div> :
 
         <div>
-          <button onClick={handleClick} data-choice='rock'>Rock</button>
-          <button onClick={handleClick} data-choice='paper'>Paper</button>
-          <button onClick={handleClick} data-choice='scissors'>Scissors</button>
+          {choices.map((choice) => (
+            <ChoiceBtn
+              key={choice}
+              choice={choice}
+              onClick={handleClick}
+              data-choice={choice}
+            />
+          ))}
         </div>
       }
     </div>
