@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react';
+import { useState } from 'react';
 import {
   checkWinner,
   randomChoice,
@@ -8,7 +8,7 @@ import {
 
 
 import Header from './components/Header';
-import ChoiceBtn from './components/ChoiceBtn';
+import ChoiceButtons from './components/ChoiceButtons';
 import './App.css';
 
 function App() {
@@ -17,16 +17,17 @@ function App() {
   const [computerChoice, setComputerChoice] = useState<ChoiceType | null>(null);
 
   // Makes player choice and computer choice and get winner
-  function handleClick(e: MouseEvent<HTMLButtonElement>) {
-    let choice = e.currentTarget.dataset.choice as ChoiceType;
-    if (choice == null) return;
-
-    setPlayerChoice(choice);
+  function handleChoice(choice: string) {
+    // Ensures choice is either rolc, paper or scissors;
+    if (!['rock', 'paper', 'scissors'].includes(choice)) return;
+    
+    // Telling typescript that choice contains only rock or paper or scissor
+    setPlayerChoice(choice as ChoiceType);
     
     let computerChoice = randomChoice();
     setComputerChoice(computerChoice);
     
-    if (checkWinner(choice, computerChoice) === 'win') {
+    if (checkWinner(choice as ChoiceType, computerChoice) === 'win') {
       setScore((score) => score + 1);
     }
   }
@@ -41,29 +42,19 @@ function App() {
     checkWinner(playerChoice, computerChoice) :
     null;
   let message = gameState ? getGameMessage(gameState) : '';
-  const choices = ['rock', 'paper', 'scissors'];
 
   return (
     <div className="app">
       <Header score={score} />
       {gameState ? 
-        <div>
+        <div role='alert'>
           <p>You picked: {playerChoice}</p>
           <p>The house picked: {computerChoice}</p>
           <p>{message}</p>
           <button onClick={playAgain}>Play again</button>
         </div> :
 
-        <div>
-          {choices.map((choice) => (
-            <ChoiceBtn
-              key={choice}
-              choice={choice}
-              onClick={handleClick}
-              data-choice={choice}
-            />
-          ))}
-        </div>
+        <ChoiceButtons handleChoice={handleChoice} />
       }
     </div>
   );

@@ -1,0 +1,28 @@
+.choice-btns {
+  position: relative;
+  width: 18rem;
+  height: 18rem;
+  margin: 0 auto;
+  justify-content: center;
+  background: url('../../assets/bg-triangle.svg') no-repeat center / 60%;
+}
+
+.choice-btns > * {
+  position: absolute;
+}
+/** Position children in a triangle **/
+.choice-btns > *:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.choice-btns > *:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.choice-btns > *:nth-child(3) {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
