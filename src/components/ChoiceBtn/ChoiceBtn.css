@@ -26,6 +26,7 @@
   height: 100%;
   background-color: white;
   background-position: center;
+  background-size: 40%;
   background-repeat: no-repeat;
   display: block;
   border-radius: 100%;
@@ -66,4 +67,12 @@
 
 .choice-btn.scissors::before {
   background-image: url('../../assets/icon-scissors.svg');
+}
+
+@media screen and (min-width: 48rem) {
+  .choice-btn {
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+  }
 }

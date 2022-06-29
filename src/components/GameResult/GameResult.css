@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   row-gap: 4rem;
+  max-width: 42rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .game-result-choice {
@@ -52,4 +55,19 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: .75rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .game-result {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    row-gap: 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .play-again-wrapper {
+    grid-column: 2 / 3;
+    grid-row: 1;
+  }
 }

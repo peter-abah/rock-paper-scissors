@@ -26,3 +26,10 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media screen and (min-width: 48rem) {
+  .choice-btns {
+    width: 24rem;
+    height: 24rem;
+  }
+}
