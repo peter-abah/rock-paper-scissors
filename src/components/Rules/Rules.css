@@ -1,0 +1,25 @@
+.rules {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.rules h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: hsl(229, 25%, 31%);
+  margin: 5rem auto 6rem;
+}
+
+.rules button {
+  display: block;
+  background-color: transparent;
+  margin: auto auto 3rem;
+}

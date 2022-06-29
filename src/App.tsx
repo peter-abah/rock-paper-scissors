@@ -8,6 +8,7 @@ import {
 
 import Header from './components/Header';
 import GameResult from './components/GameResult';
+import Rules from './components/Rules';
 import ChoiceButtons from './components/ChoiceButtons';
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [playerChoice, setPlayerChoice] = useState<ChoiceType | null>(null);
   const [computerChoice, setComputerChoice] = useState<ChoiceType | null>(null);
+  const [isRulesOpen, setIsRulesOpen] = useState(false);
 
   // Makes player choice and computer choice and get winner
   function handleChoice(choice: string) {
@@ -41,7 +43,7 @@ function App() {
   const showResult = playerChoice && computerChoice;
 
   return (
-    <div className="app">
+    <section className="app">
       <Header score={score} />
       {showResult ? 
         <GameResult
@@ -52,7 +54,18 @@ function App() {
 
         <ChoiceButtons handleChoice={handleChoice} />
       }
-    </div>
+      
+      <button
+        className='rules-btn'
+        onClick={() => setIsRulesOpen(true)}
+      >
+        RULES
+      </button>
+      
+      {isRulesOpen &&
+        <Rules onClose={() => setIsRulesOpen(false)} />
+      }
+    </section>
   );
 }
 

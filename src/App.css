@@ -1,29 +1,20 @@
 .app {
   min-height: 100vh;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   color: white;
 }
 
-.score-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  background-color: white;
-  color: hsl(229, 25%, 31%);
-  border-radius: .25rem;
-  padding: .75rem 1.2rem;
-}
-
-.score-wrapper h2 {
-  font-size: 10px;
-  color: hsl(229, 64%, 46%);
-}
-
-.score {
-  font-weight: 700;
-  font-size: 2.25rem;
+.rules-btn {
+  display: block;
+  margin: auto auto 2rem;
+  background-color: transparent;
+  color: white;
+  border-radius: .5rem;
+  padding: .75rem 2rem;
+  border: 3px solid hsl(217, 16%, 45%);
+  letter-spacing: .2em;
+  font-weight: 600;
 }
