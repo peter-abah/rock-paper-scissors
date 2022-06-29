@@ -25,10 +25,12 @@
 
 .game-result-choice:first-child {
   justify-self: start;
+  animation: fade-in ease-in .5s;
 }
 
 .game-result-choice:nth-child(2) {
   justify-self: end;
+  animation: fade-in .5s ease-in .5s backwards;
 }
 
 .play-again-wrapper {
@@ -38,6 +40,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fade-in .5s ease-in 1s backwards;
 }
 
 .play-again-wrapper > button {
@@ -49,6 +52,10 @@
   border-radius: .5rem;
   height: 2.5rem;
   font-weight: 600;
+}
+
+.play-again-wrapper button:hover {
+  color: hsl(349, 71%, 52%);
 }
 
 .play-again-wrapper > p {
@@ -69,5 +76,15 @@
   .play-again-wrapper {
     grid-column: 2 / 3;
     grid-row: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
   }
 }

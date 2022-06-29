@@ -1,13 +1,16 @@
+import clsx from 'clsx';
 import rulesImg from '../../assets/image-rules.svg'
 import { ReactComponent as CloseIcon } from '../../assets/icon-close.svg';
 import './Rules.css';
 
 interface Props {
   onClose: () => void;
-}
-function Rules({ onClose }: Props) {
+  isOpen: boolean;
+};
+
+function Rules({ onClose, isOpen }: Props) {
   return (
-    <section className='rules'>
+    <section className={clsx('rules', isOpen && 'rules--open')}>
       <h2>RULES</h2>
       <img
         src={rulesImg}

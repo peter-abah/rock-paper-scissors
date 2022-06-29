@@ -5,10 +5,14 @@ import './ChoiceBtn.css';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   choice: string;
+  isWinner?: boolean;
 }
-function ChoiceButton({ choice, ...props }: Props) {
+function ChoiceButton({ choice, isWinner, ...props }: Props) {
   return (
-    <button className={clsx('choice-btn', choice)} {...props} >
+    <button
+      className={clsx('choice-btn', choice, isWinner && 'winner')}
+      {...props}
+    >
       <span className='sr-only'>{titleCase(choice)}</span>
     </button>
   );

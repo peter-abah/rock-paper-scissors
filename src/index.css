@@ -30,9 +30,13 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	height: fit-content;
+	height: -webkit-fill-available;
+	min-height: 100vh;
 	font-family: 'Barlow Semi Condensed', sans-serif;
 	background: linear-gradient(180deg, hsl(214, 47%, 23%), hsl(237, 49%, 15%)) fixed;
+}
+html {
+  height: -webkit-fill-available;
 }
 * {
   box-sizing: border-box;
@@ -70,4 +74,20 @@ table {
 button {
   border: 0;
   padding: 0
+}
+
+/** Prevent animation for users that do not want it **/
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

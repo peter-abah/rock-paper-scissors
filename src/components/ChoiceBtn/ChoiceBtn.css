@@ -4,9 +4,20 @@
   position: relative;
   border-radius: 100%;
   padding: .75rem;
+  transition: transform .3s ease-out;
   transform-style: preserve-3d;
 }
 
+.choice-btn:hover {
+  transform: scale(1.1);
+}
+
+/** Transforms cannot be combined from different declaration
+    so have to redeclare the transform for the third btn
+**/
+.choice-btn:nth-child(3):hover {
+  transform: translateX(-50%) scale(1.1);
+}
 /** For 3d effect **/
 .choice-btn::after {
   content: '';

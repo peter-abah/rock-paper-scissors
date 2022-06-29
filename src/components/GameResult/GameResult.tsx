@@ -16,6 +16,7 @@ function GameResult({ playerChoice, computerChoice, playAgain}: Props) {
       <div className='game-result-choice'>
         <ChoiceBtn
           choice={playerChoice}
+          isWinner={result === 'win'}
         />
         <p>YOU PICKED</p>
       </div>
@@ -23,6 +24,7 @@ function GameResult({ playerChoice, computerChoice, playAgain}: Props) {
       <div className='game-result-choice'>
         <ChoiceBtn
           choice={computerChoice}
+          isWinner={result === 'lose'}
         />
         <p>THE HOUSE PICKED</p>
       </div>

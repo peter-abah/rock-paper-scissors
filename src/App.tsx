@@ -62,9 +62,10 @@ function App() {
         RULES
       </button>
       
-      {isRulesOpen &&
-        <Rules onClose={() => setIsRulesOpen(false)} />
-      }
+      <Rules
+        onClose={() => setIsRulesOpen(false)}
+        isOpen={isRulesOpen}
+      />
     </section>
   );
 }
