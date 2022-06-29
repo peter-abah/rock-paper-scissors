@@ -11,7 +11,7 @@ const winningConditions = {
 export type ChoiceType = keyof typeof winningConditions;
 
 // Checks if player wins, loses or ties in rock paper scissors
-export function checkWinner(playerChoice: ChoiceType, computerChoice: ChoiceType) {
+export function checkWin(playerChoice: ChoiceType, computerChoice: ChoiceType) {
   if (winningConditions[playerChoice] === computerChoice) {
     return 'win';
   }

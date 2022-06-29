@@ -1,0 +1,55 @@
+.game-result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 4rem;
+}
+
+.game-result-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+.game-result-choice > button {
+  margin-bottom: 1.5rem;
+}
+
+.game-result-choice > p {
+  font-weight: 600;
+  text-align: center;
+}
+
+.game-result-choice:first-child {
+  justify-self: start;
+}
+
+.game-result-choice:nth-child(2) {
+  justify-self: end;
+}
+
+.play-again-wrapper {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play-again-wrapper > button {
+  display: grid;
+  place-items: center;
+  width: 11rem;
+  background-color: white;
+  color: hsl(229, 25%, 31%);
+  border-radius: .5rem;
+  height: 2.5rem;
+  font-weight: 600;
+}
+
+.play-again-wrapper > p {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: .75rem;
+}

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import {
-  checkWinner,
+  checkWin,
   randomChoice,
-  getGameMessage,
   ChoiceType
 } from './utils';
 
 
 import Header from './components/Header';
+import GameResult from './components/GameResult';
 import ChoiceButtons from './components/ChoiceButtons';
 import './App.css';
 
@@ -27,7 +27,7 @@ function App() {
     let computerChoice = randomChoice();
     setComputerChoice(computerChoice);
     
-    if (checkWinner(choice as ChoiceType, computerChoice) === 'win') {
+    if (checkWin(choice as ChoiceType, computerChoice) === 'win') {
       setScore((score) => score + 1);
     }
   }
@@ -38,21 +38,17 @@ function App() {
     setComputerChoice(null);
   }
   
-  let gameState = playerChoice && computerChoice ?
-    checkWinner(playerChoice, computerChoice) :
-    null;
-  let message = gameState ? getGameMessage(gameState) : '';
+  const showResult = playerChoice && computerChoice;
 
   return (
     <div className="app">
       <Header score={score} />
-      {gameState ? 
-        <div role='alert'>
-          <p>You picked: {playerChoice}</p>
-          <p>The house picked: {computerChoice}</p>
-          <p>{message}</p>
-          <button onClick={playAgain}>Play again</button>
-        </div> :
+      {showResult ? 
+        <GameResult
+          playerChoice={playerChoice}
+          computerChoice={computerChoice}
+          playAgain={playAgain}
+        /> :
 
         <ChoiceButtons handleChoice={handleChoice} />
       }
