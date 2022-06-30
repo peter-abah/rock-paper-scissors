@@ -8,6 +8,12 @@
   transform-style: preserve-3d;
 }
 
+.choice-btn.winner {
+  box-shadow: 0 0 0 2rem rgb(255 255 255 / 0.04),
+              0 0 0 4rem rgb(255 255 255 / 0.04),
+              0 0 0 6rem rgb(255 255 255 / 0.04);
+}
+
 .choice-btn:hover {
   transform: scale(1.1);
 }
@@ -18,6 +24,7 @@
 .choice-btn:nth-child(3):hover {
   transform: translateX(-50%) scale(1.1);
 }
+
 /** For 3d effect **/
 .choice-btn::after {
   content: '';
