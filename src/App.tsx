@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 import {
   checkWin,
   randomChoice,
@@ -13,7 +14,7 @@ import ChoiceButtons from './components/ChoiceButtons';
 import './App.css';
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useLocalStorage('score', 0);
   const [playerChoice, setPlayerChoice] = useState<ChoiceType | null>(null);
   const [computerChoice, setComputerChoice] = useState<ChoiceType | null>(null);
   const [isRulesOpen, setIsRulesOpen] = useState(false);
